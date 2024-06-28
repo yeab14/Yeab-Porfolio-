@@ -9,7 +9,7 @@ export const educations = [
     id: 2,
     title: "Higher Secondary Certificate",
     duration: "2018 - 2019",
-    institution: "Lideta Catholica Cathedral School",
+    institution: "Lideta Catholic Cathedral School",
   },
   {
     id: 3,
