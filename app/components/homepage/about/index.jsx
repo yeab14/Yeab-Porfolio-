@@ -33,7 +33,7 @@ function AboutSection() {
   height={280}
   alt="Yeabsira Dereje"
   className="rounded-lg transition-all duration-1000 ease-in-out transform hover:scale-110 hover:rotate-6 cursor-pointer 
-             hover:shadow-2xl hover:shadow-purple-500 hover:border-4 hover:border-purple-500 
+             hover:shadow-2xl hover:shadow-purple-500 hover:border-4 hover:border-white-500 
              hover:translate-x-2 hover:translate-y-2 hover:bg-purple-200 hover:backdrop-blur-md"
 />
 
