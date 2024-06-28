@@ -225,6 +225,9 @@ export const skillsImage = (skill) => {
       return wolframalpha;
     case 'canva':
       return canva;
+      case 'python':
+        return python;
+    case 'java':
     default:
       break;
   }
