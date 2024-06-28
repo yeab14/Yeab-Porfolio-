@@ -23,13 +23,18 @@ function AboutSection() {
           </p>
         </div>
         <div className="flex justify-center order-1 lg:order-2">
-          <Image
-            src={personalData.profile}
-            width={280}
-            height={280}
-            alt="Yeabsira Dereje"
-            className="rounded-lg transition-all duration-1000 grayscale hover:grayscale-0 hover:scale-110 cursor-pointer"
-          />
+        <Image
+  src={personalData.profile}
+  width={280}
+  height={280}
+  alt="Yeabsira Dereje"
+  className="rounded-lg transition-all duration-1000 ease-in-out transform hover:scale-110 hover:rotate-6 cursor-pointer 
+             hover:shadow-2xl hover:shadow-purple-500 hover:border-4 hover:border-purple-500 
+             hover:translate-x-2 hover:translate-y-2 hover:bg-purple-200 hover:backdrop-blur-md"
+/>
+
+
+
         </div>
       </div>
     </div>
