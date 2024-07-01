@@ -19,10 +19,11 @@ function AboutSection() {
     Who I am?
   </p>
   <div className="text-gray-200 text-sm lg:text-lg relative overflow-hidden">
-    <p className="animate-slide-in-left mb-4">
-      {personalData.description}
-    </p>
-  </div>
+  <p className="animate-slide-in-left mb-4 text-justify">
+    {personalData.description}
+  </p>
+</div>
+
 </div>
 
 
