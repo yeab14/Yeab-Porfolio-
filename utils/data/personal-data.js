@@ -7,11 +7,11 @@ export const personalData = {
   phone: '+251974071544',
   address: 'Addis Ababa,Ethiopia',
   github: 'https://github.com/yeab14',
-  facebook: 'https://www.facebook.com/abusaid.riyaz/',
-  linkedIn: 'https://www.linkedin.com/in/abu-said-bd/',
+  linkedIn: 'https://www.linkedin.com/in/yeabsira-dereje-b798a9287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+  facebook: 'https://www.facebook.com/yeabsira_dereje/',
   twitter: 'https://twitter.com/said7388',
   stackOverflow: 'https://stackoverflow.com/users/16840768/abu-said',
-  leetcode: "https://leetcode.com/said3812/",
-  devUsername: "said7388",
-  resume: "https://drive.google.com/file/d/1eyutpKFFhJ9X-qpQGKhUNnVRkB5Wer00/view?usp=sharing"
+  leetcode: "https://leetcode.com/u/yeab14/",
+  devUsername: "yeab14",
+  resume: "https://drive.google.com/file/d/1kvTPXdLVf_RYK7cG8Rwtuo2XmXLbXDh6/view?usp=drive_link"
 }
