@@ -8,7 +8,7 @@ export const experiences = [
   {
     id: 2,
     title: "Game & Chrome Extension Developer",
-    company: "Zulekya Games (freelance)",
+    company: "Ethio IT HUB (freelance)",
     duration: "(Jun 2024 - present)"
   },
 ]
