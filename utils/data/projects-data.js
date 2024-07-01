@@ -6,39 +6,39 @@ import travel from '/public/image/travel.jpg';
 export const projectsData = [
     {
         id: 1,
-        name: 'AI Powered Financial App',
-        description: "Me and my team built an AI-powered financial mobile application. I have developed API using Express, Typescript, OpenAI, AWS, and MongoDB. Used OTP via AWS SES, Google, and Facebook for the authentication system. Built AI assistants using OpenAI's latest model and trained using our dataset. Voice messages are converted to text using AWS Transcribe. The app fetches data from Google Sheets and generates a PDF term sheet, sent via AWS SES.",
-        tools: ['Express', 'MongoDB', 'OpenAI API', 'AWS SES', 'AWS S3', 'Node Mailer', 'Joi', 'Puppeteer', 'EC2', 'PM2', 'Nginx'],
-        role: 'Backend Developer',
+        name: 'Affordable Housing Platform',
+        description: "Me and my team developed an AI-powered affordable housing platform. I led the development of the UI using React.js and implemented robust backend functionality with Node.js and Express.js. We integrated a secure authentication system using JWT for seamless user access. Deployment was optimized using Docker for efficiency and scalability. Our platform prioritizes simplicity and efficiency in connecting individuals and families with affordable housing options, ensuring a user-friendly experience from search to application.",
+        tools: ['React', 'Material UI', 'Redux', 'Express js', 'Node Js', 'MongoDB', 'Docker', 'JWT'],
+        role: 'Full Stack Developer',
         code: '',
         demo: '',
         image: crefin,
     },
     {
         id: 2,
-        name: 'Travel Agency App',
-        description: 'I have designed and developed a full-stack web app for 2Expedition, a travel agency in Armenia. I created the UI using NextJS, Typescript, MUI, TailwindCSS, Google Maps, Sun-Editor, and React Slick. The app supports multiple languages and currencies. I developed the API using NestJS, Typescript, MySQL, TypeORM, AWS, and Nodemailer. I deployed the front-end app to AWS Amplify and the back-end app to AWS EC2.',
-        tools: ['NextJS', 'Tailwind CSS', "Google Maps", "NestJS", "TypeScript", "MySQL", "AWS S3", "Sun-Editor", "Gmail Passkey"],
-        role: 'Full Stack Developer',
+        name: 'Kegebrew Taxi',
+        description: 'Me and my team developed an innovative taxi booking system known as Kegebrew Taxi. I led the frontend development, where we utilized React.js, GraphQL, and Apollo Client to create a dynamic and intuitive user interface. Our goal was to revolutionize the booking experience, ensuring users could seamlessly request and manage their rides with ease. By leveraging GraphQL for efficient data fetching and Apollo Client for state management, we enhanced performance and responsiveness, delivering a robust solution that combines cutting-edge technology with user-centric design principles, This project stands out not only for its technical sophistication but also for its ability to simplify and enhance the way people interact with taxi services, making urban mobility more accessible and efficient than ever before.',
+        tools: ['React', 'Material UI', "Google Maps", 'GraphQL', 'Apollo Client'],
+        role: 'Frontend Developer',
         code: '',
         demo: '',
         image: travel,
     },
     {
         id: 3,
-        name: 'AI Powered Real Estate',
-        description: 'My team built an AI-based real estate app using Replicate API and OpenAI. We used Express, Typescript, OpenAI, Replicate, Stripe, and Mongoose to develop the API. We utilized NextJS, Formik, TailwindCSS, and other npm libraries for the UI. We have trained multiple AI assistants using the latest GPT model and integrated Replicate API for image processing. We added role-based auth, subscription plans, Cron job scheduling, and payment integration with Stripe.',
-        tools: ['React', 'Bootstrap', 'SCSS', 'Stripe', 'Express', 'TypeScript', 'MongoDB', 'Azure Blob', 'OpenAI API', 'Replicate AI', 'Cronjob', 'JWT'],
+        name: 'kegebrew Consumer Credit Management System',
+        description: 'I contributed as a frontend developer to the Kegebrew Consumer Credit Management System using Next.js. Leveraging Styled-components for scoped and reusable CSS, along with Material-UI, we created a streamlined and visually engaging user interface. Redux was instrumental in managing global state, ensuring robust functionality for handling complex credit management processes. Our emphasis on usability and design consistency guarantees a seamless experience, empowering users to oversee and optimize their credit management effortlessly.',
+        tools: ['Next js', 'Material UI', 'Styled-components', 'Redux' ],
         code: '',
-        role: 'Full Stack Developer',
+        role: 'Frontend Developer',
         demo: '',
         image: realEstate,
     },
     {
         id: 4,
-        name: 'Newsroom Management',
-        description: "My team and I developed a newspaper management dashboard application called Newsroom Management. As a front-end developer, I worked on creating the dashboard using NextJS, Material UI, Redux, Calendar, and other necessary npm libraries. We used React Redux to manage the application's state and React-hook-form and Sun Editor to handle forms.",
-        tools: ['NextJS', 'Material UI', 'Redux', 'Sun Editor', "Calendar"],
+        name: 'Youtube Video to Text chrome extension',
+        description: "Independently, I developed a captivating YouTube to text Chrome extension, combining frontend innovation with backend efficiency. For the frontend, I utilized JavaScript to create a seamless user interface that enhances accessibility to YouTube videos. On the backend, I employed Python with FastAPI, leveraging its robustness for handling API requests. The extension integrates the YouTube Transcript API to accurately fetch and display video transcripts in real-time. Deployment was achieved using Uvicorn, ensuring optimal performance and scalability. This project not only simplifies access to video content but also showcases a blend of creativity and technical expertise in enhancing user interaction with online media.",
+        tools: ['Javascript', 'Python', 'Fast API', 'Streamlit', "Youtube transcript API"],
         code: '',
         demo: '',
         image: ayla,
@@ -47,16 +47,3 @@ export const projectsData = [
 ];
 
 
-// Do not remove any property.
-// Leave it blank instead as shown below
-
-// {
-//     id: 1,
-//     name: '',
-//     description: "",
-//     tools: [],
-//     role: '',
-//     code: '',
-//     demo: '',
-//     image: crefin,
-// },
