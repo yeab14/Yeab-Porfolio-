@@ -1,7 +1,7 @@
 export const personalData = {
   name: "Yeabsira Dereje",
   profile: '/profile.jpg',
-  designation: "Softwar Enginee",
+  designation: "Software Engineer",
   description: "I’m a versatile and strategic Software Engineer with expertise in both frontend and backend development, specializing in React, Next.js, Vue.js, Spring Boot, Nest.js, FastAPI, and GraphQL. I excel at building scalable, high-performance systems with clean architecture and industry best practices. My experience spans developing e-commerce platforms, optimizing databases, implementing OAuth authentication, and designing robust APIs. I am driven by technical excellence, structured workflows, and intelligent system design that transforms complex requirements into reliable solutions.",
   email: 'yeab149@gmail.com',
   phone: '+251974071544',
