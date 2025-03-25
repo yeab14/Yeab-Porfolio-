@@ -66,9 +66,9 @@ function HeroSection() {
           </div>
         </div>
 
-        {/* Terminal-like code block with animated typing */}
-      {/* Terminal-like code block with animated typing */}
-<div className="order-1 lg:order-2 relative rounded-lg bg-gradient-to-r from-[#121212] to-[#090909] border-[#1b2c68a0] shadow-lg hover:shadow-2xl transition-shadow duration-500 ease-in-out transform hover:-translate-y-2">
+        <div className="group order-1 lg:order-2 relative rounded-lg bg-gradient-to-r from-[#121212] to-[#090909] border-2 border-[#1b2c68a0] transition-all duration-500 ease-in-out 
+    group-hover:shadow-2xl group-hover:shadow-purple-500 group-hover:border-4 group-hover:border-purple-500 group-hover:translate-x-2 group-hover:translate-y-2 group-hover:bg-purple-200 group-hover:backdrop-blur-md">
+  
   <div className="absolute inset-0 flex justify-between">
     <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600 animate-move-left-right"></div>
     <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent animate-move-left-right"></div>
@@ -182,7 +182,9 @@ function HeroSection() {
       <div><span className="text-gray-400">{`};`}</span></div>
     </code>
   </div>
+
 </div>
+
 
       </div>
     </section>
