@@ -16,7 +16,7 @@ export const metadata = {
   description:
     "I am a versatile and strategic Software Engineer with expertise in both frontend and backend development, specializing in React, Next.js, Vue.js, Spring Boot, Nest.js, FastAPI, and GraphQL. I excel in building scalable, high-performance systems while maintaining clean code principles and industry best practices. With experience in designing e-commerce platforms, optimizing databases, implementing OAuth authentication, and creating robust APIs, I deliver solutions that are efficient, maintainable, and secure. My approach combines strong technical proficiency with a focus on structured workflows and intelligent system design.",
 };
-  git 
+
 
 export default function RootLayout({ children }) {
   return (
