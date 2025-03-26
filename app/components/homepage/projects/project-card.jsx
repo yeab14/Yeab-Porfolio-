@@ -1,5 +1,3 @@
-// @flow strict
-
 import * as React from 'react';
 
 function ProjectCard({ project }) {
@@ -18,22 +16,22 @@ function ProjectCard({ project }) {
             {'{'}
 
             {'\n  '}
-            <span className="text-white">name</span>: <span className="text-amber-300">'{project.name}'</span>,
+            <span className="text-white">name</span>: <span className="text-amber-300">&apos;{project.name}&apos;</span>,
 
             {'\n  '}
             <span className="text-white">tools</span>: [
             {project.tools.map((tool, index) => (
               <span key={index}>
-                <span className="text-amber-300">'{tool}'</span>
+                <span className="text-amber-300">&apos;{tool}&apos;</span>
                 {index < project.tools.length - 1 ? <span>, </span> : ''}
               </span>
             ))} ],
 
             {'\n  '}
-            <span className="text-white">myRole</span>: <span className="text-orange-400">'{project.role}'</span>,
+            <span className="text-white">myRole</span>: <span className="text-orange-400">&apos;{project.role}&apos;</span>,
 
             {'\n  '}
-            <span className="text-white">description</span>: <span className="text-cyan-400">"{project.description}"</span>
+            <span className="text-white">description</span>: <span className="text-cyan-400">&quot;{project.description}&quot;</span>
 
             {'\n'}
             {'}'};
@@ -45,3 +43,4 @@ function ProjectCard({ project }) {
 }
 
 export default ProjectCard;
+
