@@ -1,9 +1,23 @@
-// @flow strict
+"use client"
 
+import { useState } from "react";
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
 
 function AboutSection() {
+  const [shadowPosition, setShadowPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const { offsetX, offsetY, target } = e.nativeEvent;
+    const { offsetWidth, offsetHeight } = target;
+
+    // Calculate shadow position based on mouse position
+    const x = (offsetX / offsetWidth) * 20 - 10; 
+    const y = (offsetY / offsetHeight) * 20 - 10; 
+
+    setShadowPosition({ x, y });
+  };
+
   return (
     <div
       id="about"
@@ -28,15 +42,19 @@ function AboutSection() {
         </div>
 
         {/* Image Section */}
-        <div className="flex justify-center order-1 lg:order-2 relative group">
+        <div
+          className="flex justify-center order-1 lg:order-2 relative group"
+          onMouseMove={handleMouseMove}
+        >
           <Image
             src={personalData.profile}
             width={320}
             height={320}
             alt="Yeabsira Dereje"
-            className="rounded-full transition-all duration-700 ease-in-out transform group-hover:scale-110 group-hover:rotate-6 cursor-pointer 
-                       group-hover:shadow-2xl group-hover:shadow-purple-500 group-hover:border-4 group-hover:border-white group-hover:translate-x-2 
-                       group-hover:translate-y-2 group-hover:bg-purple-200 group-hover:backdrop-blur-md"
+            className="rounded-full relative bg-gradient-to-r from-[#121212] to-[#090909] border-4 border-[#1b2c68a0] transition-all duration-500 ease-in-out group"
+            style={{
+              boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 15px rgba(138, 43, 226, 0.5)`, // Purple shadow
+            }}
           />
         </div>
       </div>
@@ -45,3 +63,4 @@ function AboutSection() {
 }
 
 export default AboutSection;
+
