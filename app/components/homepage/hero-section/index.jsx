@@ -33,24 +33,25 @@ function HeroSection() {
           </h1>
 
           <div className="my-12 flex items-center gap-6">
-            {['github', 'linkedIn', 'facebook', 'leetcode', 'twitter'].map((platform) => (
-              <Link
-                href={personalData[platform]}
-                target="_blank"
-                key={platform}
-                className="text-pink-500 hover:text-white transition-all duration-300 transform hover:scale-110"
-              >
-                {
-                  platform === 'github' ? <BsGithub size={30} /> :
-                  platform === 'linkedIn' ? <BsLinkedin size={30} /> :
-                  platform === 'facebook' ? <FaFacebook size={30} /> :
-                  platform === 'leetcode' ? <SiLeetcode size={30} /> :
-                  <FaTwitterSquare size={30} />
-                }
-              </Link>
-            ))}
-          </div>
-
+      {['github', 'linkedIn', 'leetcode'].map((platform) => (
+        <Link
+          href={personalData[platform]}
+          target="_blank"
+          key={platform}
+          className="text-gray-500 hover:text-white transition-all duration-300 transform hover:scale-110"
+        >
+          {
+            platform === 'github' ? (
+              <BsGithub size={30} className="text-black" /> 
+            ) : platform === 'linkedIn' ? (
+              <BsLinkedin size={30} className="text-blue-600" /> 
+            ) : platform === 'leetcode' ? (
+              <SiLeetcode size={30} className="text-yellow-500" /> 
+            ) : null
+          }
+        </Link>
+      ))}
+    </div>
           <div className="flex items-center gap-4">
             <Link href="#contact" className="bg-gradient-to-r from-pink-500 to-violet-600 p-[1px] rounded-full flex-1 transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
               <button className="w-full px-6 py-3 bg-[#0d1224] rounded-full text-white uppercase tracking-wider font-medium text-sm flex items-center justify-center hover:bg-transparent hover:border-pink-500 hover:text-white transition-all duration-200 ease-out transform hover:shadow-xl">
