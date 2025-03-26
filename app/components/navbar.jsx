@@ -20,28 +20,28 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#experience">
-              <div className="text-sm text-white">EXPERIENCE</div>
-            </Link>
-          </li>
-          <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#skills">
               <div className="text-sm text-white">SKILLS</div>
             </Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#certification">
-              <div className="text-sm text-white">certification</div>
-            </Link>
-          </li>
-          {/* <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/blog">
-              <div className="text-sm text-white">BLOGS</div>
-            </Link>
-          </li> */}
-          <li>
             <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#projects">
               <div className="text-sm text-white">PROJECTS</div>
+            </Link>
+          </li>
+          <li>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#experience">
+              <div className="text-sm text-white">EXPERIENCE</div>
+            </Link>
+          </li>
+          <li>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#Certification">
+              <div className="text-sm text-white">CERTIFICATIONS</div>
+            </Link>
+          </li>
+          <li>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#contact">
+              <div className="text-sm text-white">CONTACT</div>
             </Link>
           </li>
         </ul>

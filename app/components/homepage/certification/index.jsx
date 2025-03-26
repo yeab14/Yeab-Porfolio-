@@ -4,7 +4,7 @@ import CertificationCard from "./CertificationCard";
 function Certifications() {
   return (
     <div
-      id="certifications"
+    id="Certification"
       className="relative z-50 my-12 lg:my-24 bg-gradient-to-r from-[#121212] to-[#090909] px-4"
     >
       <div className="flex justify-center my-5 lg:py-8">

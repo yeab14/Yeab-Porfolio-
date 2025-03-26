@@ -57,7 +57,7 @@ function AboutSection() {
         {/* Text Section */}
         <div className="order-2 lg:order-2 flex flex-col items-start text-gray-200 space-y-4 lg:space-y-6 pl-4 lg:pl-10 ml-[-2rem] lg:ml-[-12rem]">
           <p className="font-semibold text-[#16f2b3] text-3xl lg:text-4xl uppercase tracking-wide">
-            Yeabsira Dereje
+            Yeabsira Dereje Alemayhu
           </p>
           <div className="text-sm lg:text-lg text-justify leading-relaxed">
             <p className="animate-slide-in-left text-gray-300">{personalData.description}</p>
