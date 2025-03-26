@@ -46,16 +46,6 @@ export const projectsData = [
     },
     {
         id: 5,
-        name: 'Cross-Continental E-Commerce Platform',
-        description: "Contributed to the development of a global e-commerce platform built on Next.js. The system utilized dynamic routing and SSR for rapid page loads, while the backend API was optimized for global scalability and responsiveness. I also focused on security best practices to ensure a seamless shopping experience for users worldwide.",
-        tools: ['Next.js', 'Material UI', 'Redux', 'MongoDB', 'REST API'],
-        role: 'Frontend Developer',
-        code: '',
-        demo: '',
-        image: realEstate,
-    },
-    {
-        id: 6,
         name: 'Taxi Booking System Admin Dashboard',
         description: "Engineered the administrative dashboard for a taxi booking system using React, Apollo Client, and Redux. The dashboard featured real-time booking management, advanced analytics, and Google Maps integration, offering a comprehensive view of operations and enabling efficient state management.",
         tools: ['React', 'Material UI', 'Google Maps API', 'GraphQL', 'Apollo Client', 'Redux'],
@@ -65,7 +55,7 @@ export const projectsData = [
         image: travel,
     },
     {
-        id: 7,
+        id: 6,
         name: 'Kbidir Consumer Credit Management System',
         description: "Played a key role in the development of Kbidir's Credit Management System using Next.js. Focused on designing responsive UIs with Material UI and Styled-components while ensuring secure, scalable data management with Redux and server-side processing. The platform provided robust control for managing consumer credit portfolios.",
         tools: ['Next.js', 'Material UI', 'Styled-components', 'Redux'],
@@ -75,7 +65,7 @@ export const projectsData = [
         image: realEstate,
     },
     {
-        id: 8,
+        id: 7,
         name: 'Unity 2D Flappy Bird Game',
         description: "I developed a fully functional 2D Flappy Bird game in Unity, utilizing C# for game mechanics and physics. The project involved designing intuitive controls, collision detection, and an engaging user interface. I implemented a scoring system, level progression, and obstacle patterns, with a focus on gameplay optimization and performance. This project demonstrates my ability to create engaging game experiences with Unity and C#.",
         tools: ['Unity', 'C#'],
@@ -85,7 +75,7 @@ export const projectsData = [
         image: ayla,
     },
     {
-        id: 9,
+        id: 8,
         name: 'EventLux Website Layout',
         description: "Designed and developed a visually stunning, responsive layout for EventLux using React, Vite, TypeScript, and TailwindCSS. The project featured smooth transitions and adaptive design elements to engage users effectively, positioning the platform for superior event presentation and interaction.",
         tools: ['React', 'Vite', 'TypeScript', 'TailwindCSS'],
@@ -95,7 +85,7 @@ export const projectsData = [
         image: realEstate,
     },
     {
-        id: 10,
+        id: 9,
         name: 'Remix ToDo Application',
         description: "I engineered a high-performance ToDo application using Remix for seamless SSR and routing. The project utilized Prisma ORM for type-safe database management, SQLite for a lightweight backend, and TailwindCSS for sleek, responsive UI design. This project demonstrates my ability to deliver efficient, well-structured full-stack applications with modern tooling and clean architecture.",
         tools: ['Remix', 'Prisma', 'SQLite', 'TailwindCSS'],

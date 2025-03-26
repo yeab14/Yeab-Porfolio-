@@ -15,7 +15,7 @@ export const experiences = [
   },
   {
     id: 2,
-    title: 'Full Stack Developer',
+    title: 'Software Developer',
     company: "Kegebrew Technology Solutions",
     duration: "(Jan 2023 - Dec 2024)",
     description: `As a Software Developer at Kegebrew Technology Solutions, I played a pivotal role in designing and building scalable, high-performance applications that drive business growth and enhance user experiences. My contributions included:
