@@ -1,10 +1,18 @@
-// @flow strict
+
 import Image from "next/image";
 import { educations } from "@/utils/data/educations";
 import { BsPersonWorkspace } from "react-icons/bs";
-import AnimationLottie from "../../helper/animation-lottie";
-import GlowCard from "../../helper/glow-card";
-import studyAnimation from '/public/lottie/study.json'; // Assuming this is the correct import path for your Lottie animation
+import dynamic from "next/dynamic";
+
+
+const AnimationLottie = dynamic(() => import("../../helper/animation-lottie"), {
+  ssr: false, 
+});
+
+
+import GlowCard from "../../helper/glow-card";  
+
+import studyAnimation from '/public/lottie/study.json'; 
 
 function Education() {
   return (
@@ -18,7 +26,7 @@ function Education() {
       />
       <div className="flex justify-center -translate-y-[1px]">
         <div className="w-3/4">
-          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent  w-full" />
+          <div className="h-[1px] bg-gradient-to-r from-transparent via-violet-500 to-transparent w-full" />
         </div>
       </div>
 
@@ -36,7 +44,7 @@ function Education() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           <div className="flex justify-center items-start">
             <div className="w-3/4 h-3/4">
-              <AnimationLottie animationPath={studyAnimation} /> {/* Ensure correct prop name and path */}
+              <AnimationLottie animationPath={studyAnimation} /> 
             </div>
           </div>
 
