@@ -30,8 +30,8 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#education">
-              <div className="text-sm text-white">EDUCATION</div>
+            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#certification">
+              <div className="text-sm text-white">certification</div>
             </Link>
           </li>
           {/* <li>
