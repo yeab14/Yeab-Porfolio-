@@ -1,4 +1,3 @@
-// @flow strict
 import * as React from "react";
 
 function ExperienceCard({ experience }) {
@@ -16,13 +15,13 @@ function ExperienceCard({ experience }) {
             <span className="text-pink-500">= </span>
             {'{'}
             {'\n  '}
-            <span className="text-white">title</span>: <span className="text-amber-300">'{experience.title}'</span>,
+            <span className="text-white">title</span>: <span className="text-amber-300">&apos;{experience.title}&apos;</span>,
             {'\n  '}
-            <span className="text-white">company</span>: <span className="text-orange-400">'{experience.company}'</span>,
+            <span className="text-white">company</span>: <span className="text-orange-400">&apos;{experience.company}&apos;</span>,
             {'\n  '}
-            <span className="text-white">duration</span>: <span className="text-green-400">'{experience.duration}'</span>,
+            <span className="text-white">duration</span>: <span className="text-green-400">&apos;{experience.duration}&apos;</span>,
             {'\n  '}
-            <span className="text-white">description</span>: <span className="text-cyan-400">"{experience.description}"</span>
+            <span className="text-white">description</span>: <span className="text-cyan-400">&quot;{experience.description}&quot;</span>
             {'\n'}
             {'};'}
           </pre>
@@ -33,3 +32,4 @@ function ExperienceCard({ experience }) {
 }
 
 export default ExperienceCard;
+
