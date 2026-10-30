@@ -1,46 +1,35 @@
-import * as React from 'react';
-
-function ProjectCard({ project }) {
+function ProjectCard({ project, index }) {
   return (
-    <div className="relative w-full p-6 bg-[#0f0f0f] rounded-2xl border border-[#2d2d2d] shadow-[0_4px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_6px_60px_rgba(0,0,0,0.7)] transition-all duration-500 overflow-hidden">
-      <div className="relative p-6 rounded-xl border border-[#333] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
-        <h2 className="text-center text-3xl lg:text-4xl font-bold text-gray-100 tracking-wide mb-4 border-b border-[#2d2d2d] pb-3">
-          {project.name}
-        </h2>
-
-        <div className="overflow-hidden px-4 lg:px-8 py-6 lg:py-8 bg-[#141414] rounded-xl shadow-inner">
-          <pre className="font-mono text-base text-[#d0d0d0] leading-relaxed whitespace-pre-wrap break-words">
-            <span className="text-pink-500">const </span>
-            <span className="text-white">project </span>
-            <span className="text-pink-500">= </span>
-            {'{'}
-
-            {'\n  '}
-            <span className="text-white">name</span>: <span className="text-amber-300">&apos;{project.name}&apos;</span>,
-
-            {'\n  '}
-            <span className="text-white">tools</span>: [
-            {project.tools.map((tool, index) => (
-              <span key={index}>
-                <span className="text-amber-300">&apos;{tool}&apos;</span>
-                {index < project.tools.length - 1 ? <span>, </span> : ''}
-              </span>
-            ))} ],
-
-            {'\n  '}
-            <span className="text-white">myRole</span>: <span className="text-orange-400">&apos;{project.role}&apos;</span>,
-
-            {'\n  '}
-            <span className="text-white">description</span>: <span className="text-cyan-400">&quot;{project.description}&quot;</span>
-
-            {'\n'}
-            {'}'};
-          </pre>
-        </div>
+    <article className="grid gap-6 border-t border-white/10 py-10 md:grid-cols-12 md:gap-10 md:py-14">
+      <div className="md:col-span-4">
+        <p className="font-serif text-3xl text-[#d6b48a]">0{index + 1}</p>
+        <h3 className="mt-4 font-serif text-3xl leading-tight text-[#f4efe6]">{project.name}</h3>
+        <p className="mt-4 text-sm text-[#b7b0a4]">{project.client}</p>
+        <p className="mt-1 text-sm text-[#f4efe6]">{project.role}</p>
       </div>
-    </div>
+
+      <div className="md:col-span-8">
+        <p className="text-base leading-relaxed text-[#d9d3c8] md:text-lg">{project.summary}</p>
+        <div className="mt-5 space-y-4">
+          {project.paragraphs.map((paragraph) => (
+            <p key={paragraph} className="text-sm leading-relaxed text-[#b7b0a4] md:text-base">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {project.tools.map((tool) => (
+            <li
+              key={tool}
+              className="border border-white/15 px-2.5 py-1 text-xs tracking-wide text-[#d9d3c8]"
+            >
+              {tool}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 }
 
 export default ProjectCard;
-

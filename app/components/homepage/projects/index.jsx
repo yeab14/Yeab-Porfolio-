@@ -1,30 +1,23 @@
-import { projectsData } from '@/utils/data/projects-data';
-import ProjectCard from './project-card';
+import { projectsData } from "@/utils/data/projects-data";
+import SectionHeading from "../../helper/section-heading";
+import ProjectCard from "./project-card";
 
-const Projects = () => {
+function Projects() {
   return (
-    <div id="projects" className="relative z-50 my-12 lg:my-24 px-4">
-      {/* Header Section */}
-      <div className="relative mb-12">
-        <div className="w-[80px] h-[80px] bg-violet-100 rounded-full absolute -top-3 left-0 translate-x-1/2 blur-3xl opacity-30"></div>
-        <div className="flex items-center justify-start relative">
-          <span className="bg-[#1a1443] absolute left-0 w-fit text-white px-5 py-3 text-2xl font-bold rounded-md shadow-md">
-            PROJECTS
-          </span>
-          <span className="w-full h-[2px] bg-[#1a1443] ml-32"></span>
-        </div>
-      </div>
-
-      {/* Projects Grid */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <section id="systems" className="scroll-mt-28 border-t border-white/10 py-16 md:py-24">
+      <SectionHeading
+        index="02"
+        eyebrow="Systems"
+        title="Systems I have built"
+        summary="A closer look at the main systems from those jobs."
+      />
+      <div className="mt-4">
         {projectsData.map((project, index) => (
-          <div key={index} className="transition-transform hover:scale-[1.015]">
-            <ProjectCard project={project} />
-          </div>
+          <ProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
-    </div>
+    </section>
   );
-};
+}
 
 export default Projects;

@@ -1,195 +1,97 @@
-// @flow strict
-'use client';
-
 import { personalData } from "@/utils/data/personal-data";
 import Image from "next/image";
-import Link from "next/link";
-import { BsGithub, BsLinkedin } from "react-icons/bs";
-import { FaFacebook, FaTwitterSquare } from "react-icons/fa";
-import { MdDownload } from "react-icons/md";
-import { RiContactsFill } from "react-icons/ri";
-import { SiLeetcode } from "react-icons/si";
+
+const facts = [
+  { label: "Now", value: "Zagoal, remote" },
+  { label: "Study", value: "MSc Computer Science" },
+  { label: "Degree", value: "BSc 3.77 / 4.00" },
+];
 
 function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center justify-between py-4 lg:py-12 bg-gradient-to-r from-[#121212] to-[#090909]">
-
-      {/* Background Image with subtle animation */}
-      <Image
-        src="/hero.svg"
-        alt="Hero"
-        width={1572}
-        height={795}
-        className="absolute top-0 -z-10 opacity-40 animate-pulse blur-xl"
-      />
-
-      <div className="grid grid-cols-1 items-center lg:grid-cols-2 lg:gap-12 gap-y-8 max-w-7xl px-4 sm:px-8 lg:px-16">
-        <div className="order-2 lg:order-1 flex flex-col items-start justify-center p-4 md:pb-10 lg:pt-10">
-          <h1 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-600 md:text-6xl lg:text-7xl animate-float">
-            Hello, <br />
-            I&apos;m <span className="text-white">{personalData.name}</span>, <br />
-
-            <span className="text-green-400">{personalData.designation}</span>.
+    <section className="pb-16 pt-10 md:pb-24 md:pt-16">
+      <div className="grid items-end gap-10 lg:grid-cols-[minmax(0,1.15fr)_20rem] lg:gap-16">
+        <div>
+          <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#d6b48a]">
+            {personalData.designation}
+          </p>
+          <h1 className="mt-4 font-serif text-[3.15rem] leading-[0.92] tracking-tight text-[#f4efe6] sm:text-6xl lg:text-7xl">
+            <span className="block">Yeabsira</span>
+            <span className="block">Dereje Alemayhu</span>
           </h1>
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#d9d3c8] md:text-xl">
+            {personalData.description}
+          </p>
+          <p className="mt-4 text-sm text-[#b7b0a4]">
+            Salzburg, Austria
+            <span className="px-2 text-white/25">·</span>
+            Open to roles, including remote
+          </p>
 
-          <div className="my-12 flex items-center gap-6">
-      {['github', 'linkedIn', 'leetcode'].map((platform) => (
-        <Link
-          href={personalData[platform]}
-          target="_blank"
-          key={platform}
-          className="text-gray-500 hover:text-white transition-all duration-300 transform hover:scale-110"
-        >
-          {
-            platform === 'github' ? (
-              <BsGithub size={30} className="text-black" /> 
-            ) : platform === 'linkedIn' ? (
-              <BsLinkedin size={30} className="text-blue-600" /> 
-            ) : platform === 'leetcode' ? (
-              <SiLeetcode size={30} className="text-yellow-500" /> 
-            ) : null
-          }
-        </Link>
-      ))}
-    </div>
-          <div className="flex items-center gap-4">
-            <Link href="#contact" className="bg-gradient-to-r from-pink-500 to-violet-600 p-[1px] rounded-full flex-1 transition-all duration-300 hover:from-pink-500 hover:to-violet-600">
-              <button className="w-full px-6 py-3 bg-[#0d1224] rounded-full text-white uppercase tracking-wider font-medium text-sm flex items-center justify-center hover:bg-transparent hover:border-pink-500 hover:text-white transition-all duration-200 ease-out transform hover:shadow-xl">
-                <span>Contact me</span>
-                <RiContactsFill size={14} className="ml-2" />
-              </button>
-            </Link>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href="/#contact"
+              className="inline-flex items-center justify-center bg-[#d6b48a] px-5 py-3 text-sm font-medium text-[#1a1610] transition hover:bg-[#e6c9a4]"
+            >
+              Get in touch
+            </a>
+            <a
+              href={personalData.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center border border-white/20 px-5 py-3 text-sm text-[#f4efe6] transition hover:border-[#d6b48a]"
+            >
+              View resume
+            </a>
+          </div>
 
-            <Link href={personalData.resume} target="_blank" className="flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-violet-600 px-6 py-3 text-white uppercase tracking-wider font-medium text-sm hover:text-white hover:from-violet-600 hover:to-pink-500 transition-all duration-200 ease-out transform hover:shadow-xl">
-              <span>Get Resume</span>
-              <MdDownload size={14} className="ml-2" />
-            </Link>
+          <div className="mt-5 flex gap-6 text-sm">
+            <a
+              href={personalData.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#d6b48a] underline-offset-4 hover:underline"
+            >
+              GitHub
+            </a>
+            <a
+              href={personalData.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#d6b48a] underline-offset-4 hover:underline"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 
-        <div className="group order-1 lg:order-2 relative rounded-lg bg-gradient-to-r from-[#121212] to-[#090909] border-2 border-[#1b2c68a0] transition-all duration-500 ease-in-out 
-    group-hover:shadow-2xl group-hover:shadow-purple-500 group-hover:border-4 group-hover:border-purple-500 group-hover:translate-x-2 group-hover:translate-y-2 group-hover:bg-purple-200 group-hover:backdrop-blur-md">
-  
-  <div className="absolute inset-0 flex justify-between">
-    <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600 animate-move-left-right"></div>
-    <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent animate-move-left-right"></div>
-  </div>
+        <div className="bg-[#f3eee4] p-3 lg:w-[20rem]">
+          <Image
+            src={personalData.profile}
+            alt="Yeabsira Dereje Alemayhu"
+            width={640}
+            height={760}
+            priority
+            className="h-auto w-full object-cover object-top"
+          />
+        </div>
+      </div>
 
-  <div className="px-6 lg:px-8 py-6 lg:py-8">
-    <div className="flex items-center space-x-2">
-      <div className="h-3 w-3 rounded-full bg-red-400 animate-move-left-right"></div>
-      <div className="h-3 w-3 rounded-full bg-orange-400 animate-move-left-right"></div>
-      <div className="h-3 w-3 rounded-full bg-green-200 animate-move-left-right"></div>
-    </div>
-  </div>
-
-  <div className="overflow-hidden border-t-[2px] border-indigo-900 px-6 lg:px-8 py-6 lg:py-8">
-    <code className="font-mono text-xs md:text-sm lg:text-base text-white">
-      <div>
-        <span className="text-pink-500">const </span>
-        <span className="text-white">softwareEngineer</span>
-        <span className="text-pink-500"> = </span>
-        <span className="text-gray-400">{'{'}</span>
-      </div>
-      <div>
-        <span className="ml-6 text-white">name:</span>
-        <span className="text-gray-400">{`'`}</span>
-        <span className="text-amber-300">Yeabsira Dereje</span>
-        <span className="text-gray-400">{`',`}</span>
-      </div>
-      <div className="ml-6">
-        <span className="text-white">skills:</span>
-        <span className="text-gray-400">{`[ `}</span>
-        <span className="text-amber-300">React</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">NextJS</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Vue.js</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Spring Boot</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Node.js</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">FastAPI</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Python</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Golang</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Docker</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Kubernetes</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">MySQL</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">PostgreSQL</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">MongoDB</span>
-        <span className="text-gray-400">{` ],`}</span>
-      </div>
-      <div>
-        <span className="ml-6 text-white">experience:</span>
-        <span className="text-gray-400">{`[ `}</span>
-        <span className="text-amber-300">Building scalable e-commerce platforms</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Developing robust backend architectures</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Leading team-driven projects</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-amber-300">Optimizing performance at scale</span>
-        <span className="text-gray-400">{` ],`}</span>
-      </div>
-      <div>
-        <span className="ml-6 text-white">qualities:</span>
-        <span className="text-gray-400">{`[ `}</span>
-        <span className="text-orange-400">Quick Learner</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-orange-400">Highly Committed</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-orange-400">Team-Oriented</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-orange-400">Creative Problem Solver</span>
-        <span className="text-gray-400">{`, `}</span>
-        <span className="text-orange-400">Versatile Skillset</span>
-        <span className="text-gray-400">{` ],`}</span>
-      </div>
-      <div>
-        <span className="ml-6 text-white">readyForOpportunities:</span>
-        <span className="text-orange-400">function</span>
-        <span className="text-gray-400">{'() {'}</span>
-      </div>
-      <div>
-        <span className="ml-8 text-cyan-400">return</span>
-        <span className="text-gray-400">{`(`}</span>
-      </div>
-      <div>
-        <span className="ml-12 text-cyan-400">this.</span>
-        <span className="text-white">dedicatedWorker</span>
-        <span className="text-amber-300">&amp;&amp;</span>
-      </div>
-      <div>
-        <span className="ml-12 text-cyan-400">this.</span>
-        <span className="text-white">creativeProblemSolver</span>
-        <span className="text-amber-300">&amp;&amp;</span>
-      </div>
-      <div>
-        <span className="ml-12 text-cyan-400">this.</span>
-        <span className="text-white">versatileSkills</span>
-        <span className="text-amber-300">&gt;=</span>
-        <span className="text-orange-400">5</span>
-      </div>
-      <div><span className="ml-8 text-gray-400">{`)`}</span></div>
-      <div><span className="ml-6 text-gray-400">{`};`}</span></div>
-      <div><span className="text-gray-400">{`};`}</span></div>
-    </code>
-  </div>
-
-</div>
-
-
-      </div>
+      <dl className="mt-14 grid border-y border-white/10 sm:grid-cols-3">
+        {facts.map((fact) => (
+          <div
+            key={fact.label}
+            className="border-b border-white/10 py-5 last:border-b-0 sm:border-b-0 sm:border-r sm:px-6 sm:last:border-r-0 sm:first:pl-0"
+          >
+            <dt className="text-[11px] uppercase tracking-[0.18em] text-[#b7b0a4]">
+              {fact.label}
+            </dt>
+            <dd className="mt-2 text-[#f4efe6]">{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
     </section>
   );
-};
+}
 
 export default HeroSection;
