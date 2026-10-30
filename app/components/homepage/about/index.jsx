@@ -3,47 +3,63 @@
 import { useEffect, useRef, useState } from "react";
 
 const flow = [
+  { title: "Caller", line: "Entry", icon: "caller" },
+  { title: "API", line: "Contract", icon: "api" },
+  { title: "Rules", line: "Consistency", icon: "rules" },
+  { title: "Data", line: "Source of truth", icon: "data" },
+];
+
+const decisions = [
   {
-    title: "Caller",
-    line: "Who asks",
-    detail: "A person or another system.",
+    label: "Entry",
+    title: "Who is allowed in",
     icon: "caller",
+    body: "A user, another service, and a background job are different callers. Each one gets its own entry and its own authentication. After that line, nothing reaches the database by skipping the API.",
   },
   {
-    title: "API",
-    line: "The contract",
-    detail: "What callers can rely on.",
+    label: "Contract",
+    title: "What the API promises",
     icon: "api",
+    body: "The API describes the action the caller needs, not the tables behind it. Validation and permission finish before any rule runs. Callers stay stable when a column changes or a module is split, because they depend on the contract.",
   },
   {
-    title: "Rules",
-    line: "The decision",
-    detail: "Business logic lives here.",
+    label: "Consistency",
+    title: "Which writes must succeed together",
     icon: "rules",
+    body: "The business rule lives in one layer, not in the controller and not in the query. I decide which changes commit in the same transaction, and which may finish after the response. A retry returns the first result instead of creating a second record.",
   },
   {
-    title: "Data",
-    line: "The record",
-    detail: "Written once, and kept here.",
+    label: "Data",
+    title: "Where the record lives",
     icon: "data",
+    body: "The database is the source of truth, picked for how the data is read. Transactions stay in PostgreSQL or MySQL. A read that repeats goes to a cache. Schema changes are versioned, and indexes follow the queries the API actually runs.",
+  },
+  {
+    label: "Later",
+    title: "What must not block the answer",
+    icon: "later",
+    body: "Notifications and calls to other systems leave the request. The record is saved first, and the message is taken from that saved state, so a crash cannot keep one and lose the other. The worker can see the same message twice and still finish once. If that other system slows down, the caller already has an answer, and the service stops accepting more work than it can finish.",
   },
 ];
 
 const qualities = [
   {
     title: "Secure",
-    detail: "Access is checked before the work starts.",
     icon: "secure",
+    detail:
+      "Identity and permission are decided at the boundary. The database account can only do what that part of the system owns. Input that fails validation never reaches the rules.",
   },
   {
     title: "Fast",
-    detail: "The answer does not wait on slow work.",
     icon: "fast",
+    detail:
+      "The request validates, decides, and writes. Repeated reads are cached. Heavy work is queued. When a dependency slows down, the service sheds load instead of holding the caller.",
   },
   {
     title: "Clear",
-    detail: "A change has one home, and a request can be followed.",
     icon: "clear",
+    detail:
+      "The API, the rules, and the data access change in separate places. Every request carries an id from the first hop into the logs, and a health check says whether the service should receive traffic.",
   },
 ];
 
@@ -125,7 +141,6 @@ function Node({ item }) {
       </div>
       <h3 className="mt-4 font-serif text-2xl text-[#f4efe6]">{item.title}</h3>
       <p className="mt-1 text-[11px] uppercase tracking-[0.18em] text-[#d6b48a]">{item.line}</p>
-      <p className="mt-3 text-sm leading-relaxed text-[#b7b0a4]">{item.detail}</p>
     </article>
   );
 }
@@ -164,15 +179,15 @@ function AboutSection() {
       ref={sectionRef}
       className={`scroll-mt-28 border-t border-white/10 py-16 md:py-24 ${live ? "services-live" : ""}`}
     >
-      <div className="max-w-2xl">
+      <div className="max-w-3xl">
         <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#d6b48a]">
           Services
         </p>
         <h2 className="mt-4 font-serif text-4xl leading-[1.05] text-[#f4efe6] md:text-5xl">
           How I design a system
         </h2>
-        <p className="mt-4 text-base leading-relaxed text-[#b7b0a4] md:text-lg">
-          I draw the path of a request first. One application or several parts, the drawing is the same.
+        <p className="mt-4 max-w-2xl text-base leading-relaxed text-[#b7b0a4] md:text-lg">
+          I design the system as a set of decisions: who can call it, what the API promises, which changes must succeed together, where the data lives, and which work must not block the response.
         </p>
       </div>
 
@@ -220,19 +235,34 @@ function AboutSection() {
             <p className="mb-3 text-[11px] uppercase tracking-[0.18em] text-[#d6b48a] md:hidden">
               Off the request path
             </p>
-            <Node
-              item={{
-                title: "Later",
-                line: "After the answer",
-                detail: "Work that must not slow the caller.",
-                icon: "later",
-              }}
-            />
+            <Node item={{ title: "Later", line: "After the response", icon: "later" }} />
           </div>
         </div>
       </div>
 
-      <ul className="mt-10 grid gap-8 md:grid-cols-3">
+      <ol className="mt-14">
+        {decisions.map((item, index) => (
+          <li
+            key={item.label}
+            className="grid gap-4 border-t border-white/10 py-8 md:grid-cols-12 md:gap-10 md:py-10"
+          >
+            <div className="md:col-span-4">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-[#d6b48a]">
+                0{index + 1}
+                <span className="px-2 text-[#f4efe6]/30">/</span>
+                {item.label}
+              </p>
+              <div className="mt-4 flex items-center gap-3 text-[#d6b48a]">
+                <Glyph name={item.icon} />
+                <h3 className="font-serif text-2xl text-[#f4efe6] md:text-3xl">{item.title}</h3>
+              </div>
+            </div>
+            <p className="text-sm leading-relaxed text-[#b7b0a4] md:col-span-8 md:text-base">{item.body}</p>
+          </li>
+        ))}
+      </ol>
+
+      <ul className="mt-4 grid gap-8 border-t border-white/10 pt-10 md:grid-cols-3">
         {qualities.map((item) => (
           <li key={item.title} className="flex gap-4">
             <div className="flex h-11 w-11 shrink-0 items-center justify-center border border-[#d6b48a]/40 text-[#d6b48a]">
