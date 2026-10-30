@@ -20,3 +20,51 @@ body {
   outline: 2px solid #d6b48a;
   outline-offset: 3px;
 }
+
+.flow-dot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: #d6b48a;
+  box-shadow: 0 0 10px #d6b48a;
+  opacity: 0;
+  animation-play-state: paused;
+}
+
+.services-live .flow-dot {
+  animation-play-state: running;
+}
+
+.flow-dot-x {
+  top: -3px;
+  left: 0;
+  animation: flow-x 3.6s linear infinite;
+}
+
+.flow-dot-y {
+  left: -3px;
+  top: 0;
+  animation: flow-y 3.6s linear infinite;
+}
+
+@keyframes flow-x {
+  0% { left: 0; opacity: 0; }
+  4% { opacity: 1; }
+  18% { left: calc(100% - 7px); opacity: 0; }
+  100% { left: calc(100% - 7px); opacity: 0; }
+}
+
+@keyframes flow-y {
+  0% { top: 0; opacity: 0; }
+  4% { opacity: 1; }
+  18% { top: calc(100% - 7px); opacity: 0; }
+  100% { top: calc(100% - 7px); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-dot {
+    animation: none;
+    opacity: 0;
+  }
+}
