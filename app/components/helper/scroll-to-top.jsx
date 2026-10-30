@@ -1,34 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa6";
-
-const DEFAULT_BTN_CLS =
-  "fixed bottom-4 right-4 z-50 flex items-center rounded-full bg-gradient-to-r from-pink-500 to-violet-600 p-4 hover:text-2xl transition-all duration-200 ease-out";
-const SCROLL_THRESHOLD = 50;
 
 const ScrollToTop = () => {
-  const [btnCls, setBtnCls] = useState(DEFAULT_BTN_CLS);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > SCROLL_THRESHOLD) {
-        setBtnCls(DEFAULT_BTN_CLS.replace(" hidden", ""));
-      } else {
-        setBtnCls(DEFAULT_BTN_CLS + " hidden");
-      }
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", handleScroll, { passive: true });
-    };
+    const onScroll = () => setVisible(window.scrollY > 480);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onClickBtn = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  if (!visible) return null;
 
   return (
-    <button className={btnCls} onClick={onClickBtn}>
-      <FaArrowUp />
+    <button
+      type="button"
+      aria-label="Back to top"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fixed bottom-5 right-5 z-50 border border-white/20 bg-[#090b0a]/90 px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-[#f4efe6] backdrop-blur hover:border-[#d6b48a]"
+    >
+      Top
     </button>
   );
 };

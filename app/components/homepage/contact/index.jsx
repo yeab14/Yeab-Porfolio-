@@ -1,62 +1,84 @@
-// @flow strict
-import { personalData } from '@/utils/data/personal-data';
-import Link from 'next/link';
-import { BiLogoLinkedin } from "react-icons/bi";
-import { CiLocationOn } from "react-icons/ci";
-import { FaFacebook, FaStackOverflow } from 'react-icons/fa';
-import { FaXTwitter } from "react-icons/fa6";
-import { IoLogoGithub, IoMdCall } from "react-icons/io";
-import { MdAlternateEmail } from "react-icons/md";
-import ContactWithCaptcha from './contact-with-captcha';
-import ContactWithoutCaptcha from './contact-without-captcha';
+import { personalData } from "@/utils/data/personal-data";
+import SectionHeading from "../../helper/section-heading";
+import ContactWithCaptcha from "./contact-with-captcha";
+import ContactWithoutCaptcha from "./contact-without-captcha";
+
+const links = [
+  {
+    label: "Email",
+    value: personalData.email,
+    href: `mailto:${personalData.email}?subject=Backend%20role`,
+  },
+  {
+    label: "Phone",
+    value: personalData.phone,
+    href: personalData.phoneHref,
+  },
+  {
+    label: "Based in",
+    value: personalData.address,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/yeab14",
+    href: personalData.github,
+    external: true,
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/yeabsira-dereje-b798a9287",
+    href: personalData.linkedIn,
+    external: true,
+  },
+  {
+    label: "Resume",
+    value: "Download PDF",
+    href: personalData.resume,
+    external: true,
+  },
+];
 
 function ContactSection() {
+  const captchaEnabled =
+    process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY &&
+    process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY;
+
   return (
-    <div id="contact" className="my-12 lg:my-16 relative mt-24 text-white">
-      <div className="hidden lg:flex flex-col items-center absolute top-24 -right-8">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl font-semibold rounded-md shadow-md">
-          CONTACT
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443]"></span>
-      </div>
-      
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center px-4">
-        {
-          (process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY) ? <ContactWithCaptcha />
-            : <ContactWithoutCaptcha />
-        }
+    <section id="contact" className="scroll-mt-28 border-t border-white/10 py-16 md:py-24">
+      <SectionHeading
+        index="05"
+        eyebrow="Contact"
+        title="Get in touch"
+        summary="Email or phone both work. I live in Salzburg and I am open to remote work."
+      />
 
-<div className="lg:w-3/4 p-8 bg-[#121212] rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform">
-  <div className="flex flex-col gap-8 lg:gap-12">
+      <div className="mt-12 grid items-start gap-12 lg:grid-cols-2">
+        <ul className="divide-y divide-white/10 border-y border-white/10">
+          {links.map((item) => (
+            <li key={item.label} className="grid grid-cols-[7rem_minmax(0,1fr)] gap-4 py-4">
+              <span className="text-[11px] uppercase tracking-[0.16em] text-[#b7b0a4]">
+                {item.label}
+              </span>
+              {item.href ? (
+                <a
+                  href={item.href}
+                  {...(item.external
+                    ? { target: "_blank", rel: "noopener noreferrer" }
+                    : {})}
+                  className="break-all text-[#f4efe6] underline-offset-4 hover:text-[#d6b48a] hover:underline"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <span className="text-[#f4efe6]">{item.value}</span>
+              )}
+            </li>
+          ))}
+        </ul>
 
-    <div className="text-sm md:text-xl flex flex-col gap-5">
-      <div className="flex items-center gap-3 p-4 bg-[#1a1a1a] rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-        <MdAlternateEmail size={36} className="text-[#8b98a5] hover:text-[#16f2b3] transition-all duration-300" />
-        <span className="text-gray-300 text-lg font-medium">{personalData.email}</span>
+        {captchaEnabled ? <ContactWithCaptcha /> : <ContactWithoutCaptcha />}
       </div>
-      <div className="flex items-center gap-3 p-4 bg-[#1a1a1a] rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-        <IoMdCall size={36} className="text-[#8b98a5] hover:text-[#16f2b3] transition-all duration-300" />
-        <span className="text-gray-300 text-lg font-medium">{personalData.phone}</span>
-      </div>
-      <div className="flex items-center gap-3 p-4 bg-[#1a1a1a] rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
-        <CiLocationOn size={36} className="text-[#8b98a5] hover:text-[#16f2b3] transition-all duration-300" />
-        <span className="text-gray-300 text-lg font-medium">{personalData.address}</span>
-      </div>
-    </div>
-
-    <div className="mt-8 lg:mt-16 flex justify-center gap-6">
-      <Link target="_blank" href={personalData.github}>
-        <IoLogoGithub size={48} className="bg-[#1a1a1a] p-4 rounded-full text-[#8b98a5] hover:text-[#16f2b3] shadow-md hover:shadow-xl transition-all duration-300" />
-      </Link>
-      <Link target="_blank" href={personalData.linkedIn}>
-        <BiLogoLinkedin size={48} className="bg-[#1a1a1a] p-4 rounded-full text-[#8b98a5] hover:text-[#16f2b3] shadow-md hover:shadow-xl transition-all duration-300" />
-      </Link>
-    </div>
-  </div>
-</div>
-
-      </div>
-    </div>
+    </section>
   );
 }
 

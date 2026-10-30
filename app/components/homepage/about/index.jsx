@@ -1,70 +1,43 @@
-"use client";
-
-import { useState } from "react";
-import { personalData } from "@/utils/data/personal-data";
-import Image from "next/image";
+const services = [
+  {
+    title: "System architecture",
+    body: "I split the product into services before the feature work starts. Each service owns its data and its API. Requests that need an answer immediately use REST. Work that can happen later goes through events, usually Kafka. I also set the rules for consistency, so an order or a booking is recorded once.",
+  },
+  {
+    title: "How I implement it",
+    body: "The services are Spring Boot or NestJS. API, business rules, and database access stay in separate layers, so a change stays in one place. PostgreSQL or MySQL holds the records, and schema changes are tracked. Redis is there when a cache or a queue is the right tool.",
+  },
+  {
+    title: "Quality in the running system",
+    body: "Security, performance, and code another engineer can maintain are part of the build. That includes authentication, limits on traffic, and a clear path when a dependency is slow or down. Docker and CI/CD ship the service. Health checks and trace IDs show what it is doing after release.",
+  },
+];
 
 function AboutSection() {
-  const [shadowPosition, setShadowPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e) => {
-    const { offsetX, offsetY, target } = e.nativeEvent;
-    const { offsetWidth, offsetHeight } = target;
-
-    // Calculate shadow position based on mouse position
-    const x = (offsetX / offsetWidth) * 20 - 10;
-    const y = (offsetY / offsetHeight) * 20 - 10;
-
-    setShadowPosition({ x, y });
-  };
-
   return (
-    <div
-      id="about"
-      className="my-12 lg:my-16 relative w-full p-8 lg:p-12 bg-[#0f0f0f] rounded-2xl border border-[#2d2d2d] shadow-[0_4px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_6px_60px_rgba(0,0,0,0.7)] transition-all duration-500 overflow-hidden group"
-    >
-      {/* About Me Label */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 lg:left-8 lg:top-16 lg:transform-none lg:translate-x-0 flex flex-col items-center">
-        <span className="bg-[#1a1443] w-fit text-white rotate-90 p-2 px-5 text-xl font-semibold rounded-md">
-          ABOUT ME
-        </span>
-        <span className="h-36 w-[2px] bg-[#1a1443] mt-3"></span>
+    <section id="services" className="scroll-mt-28 border-t border-white/10 py-16 md:py-20">
+      <div className="max-w-2xl">
+        <p className="text-[11px] font-medium uppercase tracking-[0.28em] text-[#d6b48a]">
+          Services
+        </p>
+        <h2 className="mt-3 font-serif text-4xl leading-[1.05] text-[#f4efe6] md:text-5xl">
+          How I build a backend
+        </h2>
+        <p className="mt-4 text-base leading-relaxed text-[#b7b0a4] md:text-lg">
+          From the shape of the system, to the code, to a release you can operate.
+        </p>
       </div>
 
-      {/* Grid for layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 relative">
-        {/* Image Section */}
-        <div
-          className="flex justify-center order-1 lg:order-1 relative group mb-6 lg:mb-0"
-          onMouseMove={handleMouseMove}
-        >
-    <div className="relative w-48 h-48 lg:w-64 lg:h-64 bg-gradient-to-r from-[#121212] to-[#090909] rounded-full border-4 border-[#1b2c68a0] transition-all duration-500 ease-in-out group-hover:scale-105 group-hover:shadow-xl group-hover:shadow-[#8a2be2]">
-  <Image
-    src={personalData.profile}
-    width={256} 
-    height={256} 
-    alt="Yeabsira Dereje"
-    className="object-cover rounded-full transition-all duration-300 ease-in-out transform"
-    style={{
-      boxShadow: `${shadowPosition.x}px ${shadowPosition.y}px 20px rgba(138, 43, 226, 0.5)`,
-    }}
-  />
-</div>
-
-
-        </div>
-
-        {/* Text Section */}
-        <div className="order-2 lg:order-2 flex flex-col items-start text-gray-200 space-y-4 lg:space-y-6 pl-4 lg:pl-10 ml-[-2rem] lg:ml-[-12rem]">
-          <p className="font-semibold text-[#16f2b3] text-3xl lg:text-4xl uppercase tracking-wide">
-            Yeabsira Dereje Alemayhu
-          </p>
-          <div className="text-sm lg:text-lg text-justify leading-relaxed">
-            <p className="animate-slide-in-left text-gray-300">{personalData.description}</p>
-          </div>
-        </div>
+      <div className="mt-10 grid gap-px bg-white/10 md:grid-cols-3">
+        {services.map((service, index) => (
+          <article key={service.title} className="bg-[#090b0a] p-6 md:p-8">
+            <p className="text-[11px] tracking-[0.2em] text-[#d6b48a]">0{index + 1}</p>
+            <h3 className="mt-4 font-serif text-2xl text-[#f4efe6]">{service.title}</h3>
+            <p className="mt-3 text-sm leading-relaxed text-[#b7b0a4]">{service.body}</p>
+          </article>
+        ))}
       </div>
-    </div>
+    </section>
   );
 }
 

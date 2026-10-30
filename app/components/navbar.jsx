@@ -1,53 +1,80 @@
-// @flow strict
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+
+const links = [
+  { href: "/#services", label: "Services" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#systems", label: "Systems" },
+  { href: "/#expertise", label: "Expertise" },
+  { href: "/#education", label: "Education" },
+  { href: "/#contact", label: "Contact", emphasis: true },
+];
 
 function Navbar() {
-  return (
-    <nav className="bg-gradient-to-r from-[#121212] to-[#090909] border-[#1b2c68a0] shadow-lg hover:shadow-2xl transition-all duration-300 ease-in-out backdrop-blur-lg">
-      <div className="flex items-center justify-between py-5 px-6">
-        <div className="flex flex-shrink-0 items-center space-x-4">
-          <Link
-            href="/"
-            className="text-[#16f2b3] text-3xl font-bold tracking-wider hover:text-[#00f2ff] transition duration-300 ease-in-out">
-            Yeabsira Dereje
-          </Link>
-        </div>
+  const [open, setOpen] = useState(false);
 
-        <ul className="mt-4 flex h-screen max-h-0 w-full flex-col items-start text-sm opacity-0 md:mt-0 md:h-auto md:max-h-screen md:w-auto md:flex-row md:space-x-6 md:border-0 md:opacity-100">
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#about">
-              <div className="text-sm text-white">ABOUT</div>
+  const close = () => setOpen(false);
+
+  return (
+    <header className="sticky top-0 z-50 -mx-6 border-b border-white/10 bg-[#090b0a]/85 backdrop-blur-md sm:-mx-10 lg:-mx-12">
+      <div className="flex items-center justify-between px-6 py-4 sm:px-10 lg:px-12">
+        <Link
+          href="/"
+          className="font-serif text-xl tracking-tight text-[#f4efe6]"
+          onClick={close}
+        >
+          Yeabsira Dereje
+        </Link>
+
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={
+                link.emphasis
+                  ? "border border-[#d6b48a]/70 px-3 py-1.5 text-sm text-[#d6b48a] transition hover:bg-[#d6b48a] hover:text-[#1a1610]"
+                  : "text-sm text-[#d9d3c8] transition hover:text-[#f4efe6]"
+              }
+            >
+              {link.label}
             </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#skills">
-              <div className="text-sm text-white">SKILLS</div>
-            </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#projects">
-              <div className="text-sm text-white">PROJECTS</div>
-            </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#experience">
-              <div className="text-sm text-white">EXPERIENCE</div>
-            </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#Certification">
-              <div className="text-sm text-white">CERTIFICATIONS</div>
-            </Link>
-          </li>
-          <li>
-            <Link className="block px-4 py-2 no-underline outline-none hover:no-underline transition duration-300 ease-in-out hover:bg-[#1b2c68a0] hover:text-pink-600 rounded-md" href="/#contact">
-              <div className="text-sm text-white">CONTACT</div>
-            </Link>
-          </li>
-        </ul>
+          ))}
+        </nav>
+
+        <button
+          type="button"
+          className="border border-white/15 px-3 py-1.5 text-xs uppercase tracking-[0.16em] text-[#f4efe6] md:hidden"
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          onClick={() => setOpen((value) => !value)}
+        >
+          {open ? "Close" : "Menu"}
+        </button>
       </div>
-    </nav>
+
+      {open ? (
+        <nav
+          id="mobile-nav"
+          className="flex flex-col border-t border-white/10 px-6 py-3 md:hidden"
+          aria-label="Mobile"
+        >
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={close}
+              className="border-b border-white/10 py-3 text-sm text-[#f4efe6] last:border-b-0"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      ) : null}
+    </header>
   );
-};
+}
 
 export default Navbar;

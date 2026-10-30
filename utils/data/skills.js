@@ -1,108 +1,77 @@
-export const skillsData = [
-  'Java',
-  'Javascript',
-  'Typescript',
-  'React',
-  'Next JS',
-  'Tailwind',
-  'PHP',
-  'MongoDB',
-  'MySQL',
-  'Python',
-  'Git',
-  'Unity',
-  'C#',
-  'Canva',
-  'Figma',
-  'Bootstrap',
-  'VuetifyJS',
-  'Graphql',
-  'Nginx'
-]
-
-// Choose your skills from below. Make sure it's in the same format and spelled correctly.
-// Couldn't find the required skills? Raise an issue on github at https://github.com/hhhrrrttt222111/developer-portfolio/issues/new
-
-
-// AVAILABLE SKILLS
-
-/* 
-  HTML
-  CSS
-  JS 
-  React
-  Next JS
-  Nuxt JS
-  Node JS
-  Vue
-  Angular
-  Docker
-  Photoshop
-  Illustrator
-  Svelte
-  GCP
-  Azure
-  Fastify
-  Haxe
-  Ionic
-  Markdown
-  Microsoft Office
-  Picsart
-  Sketch
-  Unity
-  WolframAlpha
-  Adobe XD
-  After Effects
-  Bootstrap
-  Bulma
-  CapacitorJs
-  Coffeescript
-  MemSQL
-  C
-  C++
-  C#
-  Python
-  Java
-  Julia
-  Matlab
-  Swift
-  Ruby
-  Kotlin
-  Go
-  PHP
-  Flutter
-  Dart
-  Typescript
-  Swift
-  Git
-  Figma
-  Canva
-  Ubuntu
-  Bootstrap
-  MongoDB
-  Tailwind
-  ViteJS
-  VuetifyJS
-  MySQL
-  PostgreSQL
-  AWS
-  Firebase
-  Blender
-  Premiere Pro
-  Adobe Audition
-  Deno
-  Django
-  Gimp
-  Graphql
-  Lightroom
-  MaterialUI
-  Nginx
-  Numpy
-  OpenCV
-  Pytorch
-  Selenium
-  Strapi
-  Tensorflow
-  Webex
-  Wordpress
-*/
+export const skillGroups = [
+  {
+    title: "Languages and frameworks",
+    items: [
+      "Java",
+      "TypeScript",
+      "JavaScript",
+      "Python",
+      "Spring Boot",
+      "Node.js",
+      "NestJS",
+      "FastAPI",
+    ],
+  },
+  {
+    title: "Data",
+    items: [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "SQLite",
+      "TypeORM",
+      "Liquibase",
+    ],
+  },
+  {
+    title: "Architecture",
+    items: [
+      "Microservices",
+      "REST APIs",
+      "Event-driven architecture",
+      "Distributed systems",
+      "Service orchestration",
+      "Caching",
+      "Asynchronous processing",
+    ],
+  },
+  {
+    title: "Messaging and resilience",
+    items: [
+      "Apache Kafka",
+      "RabbitMQ",
+      "Redis",
+      "Bull Queue",
+      "Outbox pattern",
+      "Idempotency",
+      "Circuit breakers",
+    ],
+  },
+  {
+    title: "Infrastructure",
+    items: [
+      "Docker",
+      "Docker Compose",
+      "Kubernetes",
+      "Nginx",
+      "CI/CD",
+      "GitHub Actions",
+      "GCP",
+      "AWS",
+    ],
+  },
+  {
+    title: "Security and delivery",
+    items: [
+      "OAuth",
+      "JWT",
+      "TLS/SSL",
+      "MFA",
+      "Rate limiting",
+      "GraphQL",
+      "Git",
+      "GitHub",
+      "GitLab",
+    ],
+  },
+];

@@ -1,35 +1,48 @@
-import * as React from "react";
-
 function ExperienceCard({ experience }) {
-  return (
-    <div className="relative w-full p-6 bg-[#0f0f0f] rounded-2xl border border-[#2d2d2d] shadow-[0_4px_40px_rgba(0,0,0,0.5)] hover:shadow-[0_6px_60px_rgba(0,0,0,0.7)] transition-all duration-500 overflow-hidden">
-      <div className="relative p-6 rounded-xl border border-[#333] bg-gradient-to-b from-[#1a1a1a] to-[#0f0f0f]">
-        <h2 className="text-center text-3xl lg:text-4xl font-bold text-gray-100 tracking-wide mb-4 border-b border-[#2d2d2d] pb-3">
-          {experience.title}
-        </h2>
+  const current = experience.duration.includes("Present");
 
-        <div className="overflow-hidden px-4 lg:px-8 py-6 lg:py-8 bg-[#141414] rounded-xl shadow-inner">
-          <pre className="font-mono text-base text-[#d0d0d0] leading-relaxed whitespace-pre-wrap break-words">
-            <span className="text-pink-500">const </span>
-            <span className="text-white">experience </span>
-            <span className="text-pink-500">= </span>
-            {'{'}
-            {'\n  '}
-            <span className="text-white">title</span>: <span className="text-amber-300">&apos;{experience.title}&apos;</span>,
-            {'\n  '}
-            <span className="text-white">company</span>: <span className="text-orange-400">&apos;{experience.company}&apos;</span>,
-            {'\n  '}
-            <span className="text-white">duration</span>: <span className="text-green-400">&apos;{experience.duration}&apos;</span>,
-            {'\n  '}
-            <span className="text-white">description</span>: <span className="text-cyan-400">&quot;{experience.description}&quot;</span>
-            {'\n'}
-            {'};'}
-          </pre>
+  return (
+    <article className="border-t border-white/10 py-10 md:py-12">
+      <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <div>
+          {current ? (
+            <p className="mb-2 text-[11px] uppercase tracking-[0.2em] text-[#d6b48a]">Current</p>
+          ) : null}
+          <h3 className="font-serif text-3xl leading-tight text-[#f4efe6] md:text-4xl">
+            {experience.title}
+          </h3>
+          <p className="mt-3 text-[#f4efe6]">
+            {experience.company}
+            <span className="px-2 text-white/25">·</span>
+            <span className="text-[#b7b0a4]">{experience.location}</span>
+          </p>
         </div>
+        <p className="text-sm text-[#b7b0a4] md:pb-1">{experience.duration}</p>
       </div>
-    </div>
+
+      <div className="mt-6 max-w-3xl">
+        <p className="text-base leading-relaxed text-[#d9d3c8] md:text-lg">{experience.summary}</p>
+        <ul className="mt-5 space-y-3">
+          {experience.highlights.map((item) => (
+            <li key={item} className="flex gap-3 text-sm leading-relaxed text-[#b7b0a4]">
+              <span className="mt-[0.55rem] h-px w-4 shrink-0 bg-[#d6b48a]" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {experience.stack.map((tool) => (
+            <li
+              key={tool}
+              className="border border-white/15 px-2.5 py-1 text-xs tracking-wide text-[#d9d3c8]"
+            >
+              {tool}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 }
 
 export default ExperienceCard;
-
